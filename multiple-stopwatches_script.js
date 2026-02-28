@@ -67,3 +67,21 @@ function updateStopwatches() {
 }
 
 setInterval(updateStopwatches, 10);
+
+// Tab Switching Logic
+const tabBtns = document.querySelectorAll('.tab-btn');
+
+tabBtns.forEach(btn => {
+	btn.addEventListener('click', (e) => {
+		const targetId = e.target.getAttribute('data-tab');
+		const container = e.target.closest('.story-container');
+		
+		// Remove 'active' class from all buttons and content within this specific set
+		container.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+		container.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+		
+		// Add 'active' class to the clicked button and the corresponding content block
+		e.target.classList.add('active');
+		document.getElementById(targetId).classList.add('active');
+	});
+});
