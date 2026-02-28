@@ -1,49 +1,144 @@
 <!doctype html>
 <html>
 <head>
-	<title>Multiple Stopwatches</title>
+	<title>Synchronized Stopwatches</title>
 	<link href="./reset.css" type="text/css" rel="stylesheet" media="all">
 	<link href="./multiple-stopwatches_style.css" type="text/css" rel="stylesheet" media="all">
 </head>
 <body>
 	<div id="toolbar">
-		<button id="clear-all">Clear All</button><button id="remove-all">Remove All</button><!--
-		--><button id="add-stopwatch">Add a Stopwatch</button><!--
-		--><div id="add-macro-div" class="inline-block">
-			<button id="add-macro">Add a Macro</button><!--
-			--><input id="add-macro-input" type="text" maxlength="1">
-		</div>
+		<button id="clear-all">Clear All Sets</button>
 	</div>
-	<div class="main">
-		<div id="sidebar">
-			<h1>List of Macro Keybinds</h1>
-			<div>
-				<div class="macro-list-item" id="macro-li-template">
-					<input type="checkbox" name="macro-keybind">
-					<label></label>
-					<br>
-				</div>
+	
+	<div class="main parent-stopwatch-container" id="all-stopwatches">
+		
+		<div class="stopwatch-set">
+			<h2>Set 1</h2>
+			<div class="stopwatch">
+				<div class="name">Stopwatch 1A</div>
+				<div class="time"><button class="time-btn" data-set="1">00:00:00.00</button></div>
 			</div>
-			<button id="delete-macro-button">Delete selected</button>
+			
+			<div class="text-block">
+				<p><em>Daedalus was a master craftsman, a genius whose inventions were celebrated across the ancient world. Yet, his brilliance became his prison. King Minos of Crete, terrified that Daedalus might reveal the secrets of the Labyrinth he had built to hold the monstrous Minotaur, locked the inventor and his young son, Icarus, in a towering stone keep overlooking the sea. Escape by water was impossible, as Minos controlled every vessel. But Daedalus looked to the skies. He began to gather feathers dropped by the seabirds that nested in the tower's crevices. Carefully, he bound the larger feathers together with strong thread and secured the smaller ones with beeswax, slowly fashioning two pairs of magnificent, sweeping wings.
+
+When the work was finally complete, Daedalus strapped a pair to his son’s shoulders. He looked Icarus in the eye, his voice heavy with caution. "Listen to me carefully, Icarus. You must fly a middle course. If you fly too low, the ocean spray will dampen the feathers, making them too heavy to carry you. If you fly too high, the heat of the sun will melt the wax, and the wings will fall apart. Stay close to me."
+
+Icarus nodded, but as they leapt from the tower window, the sheer thrill of flight took over. The wind rushed past his ears, and the world below looked like a beautifully painted map. The feeling of defying gravity was intoxicating. Farmers tending their fields and fishermen casting their nets looked up in absolute awe, believing they were witnessing gods soaring through the sky.
+
+For a while, Icarus obediently followed his father's path. But soon, the exhilaration grew too strong to contain. He felt invincible, completely untethered from the earthly realm. Forgetting his father's dire warning, he angled his wings upward, climbing higher and higher into the brilliant, cloudless sky. He wanted to touch the heavens.
+
+Daedalus looked back and cried out in terror, but his voice was swallowed by the howling wind. As Icarus ascended, the air grew incredibly warm. At first, he barely noticed the softening of the wax, too captivated by the radiant golden light of the sun. But then, a feather drifted past his face. Then another. Panic suddenly pierced his euphoria as he felt the framework of the wings beginning to loosen and shift. He desperately flapped his arms, but the wax was melting rapidly, running in hot streams down his back.
+
+The feathers stripped away, scattering like snow in the wind, leaving only his bare arms thrashing against the empty air. The boy plummeted from the sky, a tragic silhouette against the blinding sun. He struck the dark, unforgiving waters below, swallowed instantly by the depths. Daedalus circled the area, weeping bitterly as he searched for his son. He found only a smattering of white feathers floating on the waves, a haunting reminder of the devastating price of unchecked ambition and the foolishness of youth. To honor the tragic loss, he named that body of water the Icarian Sea.</em></p>
+			</div>
+			
+			<div class="stopwatch">
+				<div class="name">Stopwatch 1B</div>
+				<div class="time"><button class="time-btn" data-set="1">00:00:00.00</button></div>
+			</div>
+			<button class="clear-set" data-set="1">Clear Set 1</button>
 		</div>
-		<div id="all-stopwatches" class = "parent-stopwatch-container">
-			<div class="stopwatch-divider" id="template" draggable="true">
-				<div class="divider"></div>
-				<div class="stopwatch">
-					<input class="name" type="text" value="Stopwatch 1" tabindex="1">
-					<button class="remove" tabindex="-1">&#10005</button>
-					<div class="time"><button tabindex="-1">00:00:00.00</button></div>
-					<button class="clear" tabindex="-1">Clear</button>
-					<div class="keybind"><span>Keybind: </span><input type="text" maxlength="1" tabindex="2"></div>
-				</div>
+
+		<div class="stopwatch-set">
+			<h2>Set 2</h2>
+			<div class="stopwatch">
+				<div class="name">Stopwatch 2A</div>
+				<div class="time"><button class="time-btn" data-set="2">00:00:00.00</button></div>
 			</div>
-			<div class="stopwatch-divider" id="0">
-				<div class="divider" id="final-divider"></div>
-				<div class="stopwatch" id="final-stopwatch">
-					<div>drag here to move to end</div>
-				</div>
+			
+			<div class="text-block">
+				<p><em>Long ago in the kingdom of Lydia, there lived a young woman named Arachne who possessed a gift so extraordinary it seemed magical. She was a weaver of unparalleled skill. People traveled from distant cities just to watch her pale fingers fly across the wooden loom, weaving threads of wool and silk into breathtaking tapestries. Her designs were not merely patterns; they were vibrant, moving stories that seemed to breathe with life.
+
+However, Arachne’s talent was matched only by her profound arrogance. Whenever onlookers suggested that she must have been blessed or taught by Athena, the goddess of wisdom and crafts, Arachne would scoff in indignation. She vehemently denied any divine assistance, declaring loudly that her skill was entirely her own and that she could easily defeat Athena herself in a weaving competition.
+
+Word of this blasphemous boasting inevitably reached Mount Olympus. Displeased but willing to offer a chance at redemption, Athena disguised herself as an old, frail woman and visited Arachne’s workshop. She gently warned the headstrong girl to respect the gods and ask for forgiveness for her hubris. Instead of showing humility, Arachne mocked the old woman and brazenly challenged the goddess to appear and prove her superiority.
+
+In a flash of blinding light, the old woman shed her disguise, revealing the tall, imposing figure of Athena in her gleaming armor. The surrounding crowd fell to their knees in terror, but Arachne, driven by stubborn pride, stood her ground and accepted the contest. The two set up their looms side by side. For hours, the only sound was the rhythmic clacking of the shuttles.
+
+Athena wove a magnificent tapestry depicting the glorious majesty of the Olympian gods and the terrible punishments that befell mortals who dared to defy them. It was a masterpiece of perfect symmetry and divine power. Arachne, however, chose a different path. She wove scenes highlighting the flaws, mistakes, and scandalous behavior of the gods, portraying them as petty and cruel.
+
+Despite the disrespectful subject matter, Arachne’s tapestry was flawless. The colors were incredibly vivid, the figures so lifelike they seemed ready to step off the fabric. When Athena inspected Arachne’s work, she was furious. Not only was the tapestry deeply insulting, but it was also undeniable that Arachne’s skill was truly on par with her own.
+
+Consumed by rage and insulted by the mortal's sheer audacity, Athena struck the loom, shattering it into pieces. Terrified and finally realizing the devastating weight of her offense, Arachne tried to flee. But Athena’s anger was not yet satisfied. She touched Arachne’s forehead, condemning her to live out her days weaving in the darkest corners. Arachne’s body immediately began to shrink, her limbs extending and multiplying into spindly legs. She transformed into the world's very first spider. From that day forward, she and her descendants were cursed to eternally spin intricate, delicate webs, serving as a permanent warning against the dangerous consequences of human pride and defying the gods.</em></p>
 			</div>
+			
+			<div class="stopwatch">
+				<div class="name">Stopwatch 2B</div>
+				<div class="time"><button class="time-btn" data-set="2">00:00:00.00</button></div>
+			</div>
+			<button class="clear-set" data-set="2">Clear Set 2</button>
 		</div>
+
+		<div class="stopwatch-set">
+			<h2>Set 3</h2>
+			<div class="stopwatch">
+				<div class="name">Stopwatch 3A</div>
+				<div class="time"><button class="time-btn" data-set="3">00:00:00.00</button></div>
+			</div>
+			
+			<div class="text-block">
+				<p><em>Deep within the ancient, shadowed forests of Greece lived a beautiful wood nymph named Echo. She was beloved by all who knew her, possessing a cheerful spirit and an incredibly musical voice. However, Echo had one terrible flaw: she was a chatterbox who loved nothing more than having the last word in any conversation.
+
+One day, her constant talking distracted Hera, the powerful queen of the gods, allowing Zeus to escape from a delicate situation. Furious at the nymph’s interference, Hera punished Echo with a cruel and unusual curse. She stripped away Echo's ability to form her own thoughts into words. From that moment on, Echo could only repeat the very last words spoken to her by someone else. She was trapped in her own mind, forever a shadow of others' speech.
+
+Shortly after this tragedy, Echo spotted a young hunter named Narcissus wandering through the dense woods. He was known throughout the land for his breathtaking, almost unearthly beauty, but also for his cold, arrogant heart. He rejected everyone who admired him, believing no one was worthy of his attention. Echo instantly fell deeply in love with him. She followed him silently from behind the trees, desperate to speak to him but completely unable to initiate a conversation.
+
+Suddenly, Narcissus heard footsteps snapping twigs nearby and called out, "Is anyone here?"
+
+From behind an oak tree, Echo joyfully replied, "Here!"
+
+Confused by the disembodied voice, Narcissus shouted, "Come to me!"
+
+Echo echoed, "Come to me!"
+
+Taking this as an invitation, Echo finally stepped out of her hiding place and rushed forward to embrace him. But Narcissus recoiled in disgust. "Get away from me!" he sneered cruelly. "I would rather die than let you love me."
+
+Broken-hearted and profoundly humiliated, Echo retreated deep into the caves of the mountains. She wept until her body entirely faded away, leaving nothing behind but her voice, which still haunts empty canyons and rocky hollows to this day.
+
+Meanwhile, Narcissus continued his callous ways until the gods decided to punish him for his vanity. During a hunt, he knelt beside a pristine, glassy pool of water to take a drink. As he bent over, he saw his own reflection in the perfectly still surface. He was completely mesmerized. He had never seen a face so perfectly beautiful. Believing it to be a water spirit, he tried to reach out and touch it, but the image rippled and vanished.
+
+When the water stilled, the face returned. Narcissus became hopelessly captivated by his own reflection. He refused to eat, drink, or sleep, terrified that if he looked away, the beautiful figure would disappear forever. He stayed by the pool, staring into the water with agonizing longing, until he simply withered away from starvation and exhaustion. Where his body had rested on the grassy bank, a beautiful white and yellow flower bloomed in his place, bending its neck to stare forever downward at the quiet water's surface.</em></p>
+			</div>
+			
+			<div class="stopwatch">
+				<div class="name">Stopwatch 3B</div>
+				<div class="time"><button class="time-btn" data-set="3">00:00:00.00</button></div>
+			</div>
+			<button class="clear-set" data-set="3">Clear Set 3</button>
+		</div>
+
+		<div class="stopwatch-set">
+			<h2>Set 4</h2>
+			<div class="stopwatch">
+				<div class="name">Stopwatch 4A</div>
+				<div class="time"><button class="time-btn" data-set="4">00:00:00.00</button></div>
+			</div>
+			
+			<div class="text-block">
+				<p><em>According to an ancient, deeply revered myth from the East, a massive school of thousands of koi fish once swam up the powerful current of the Yellow River. The fish glittered like a river of living jewels, their scales flashing in shades of gold, orange, and pearlescent white under the brilliant sun. They swam together as a unified force, battling against the heavy flow of the water, growing stronger and more determined with every passing mile.
+
+Eventually, they reached a spectacular but intimidating obstacle: a towering, thunderous waterfall known to all as the Dragon Gate. The water crashed down from a terrifying height, churning into white foam at the base and creating a roar that shook the surrounding cliffs. Seeing the sheer vertical drop, the majority of the koi fish immediately gave up. They allowed the rushing current to carry them back down the river, choosing the safety and comfort of the calmer waters below.
+
+However, a small, courageous group of koi refused to abandon their journey. They were determined to reach the top of the waterfall, no matter the cost. They began to hurl their bodies into the air, leaping frantically from the crashing waves, trying to catch the water above. Again and again, they threw themselves upward, only to be beaten back down by the punishing force of the falling water.
+
+Their struggle did not go unnoticed. A group of local demons, amused by the desperate efforts of the fish, decided to make the task even harder. Using their dark magic, the demons raised the height of the waterfall, making the rocks sharper and the water more ferocious. Still, the koi would not surrender. They continued to leap for a hundred years, their bodies battered but their spirits entirely unbroken.
+
+Finally, after a century of relentless struggle, one single koi fish gathered all of its remaining strength. With a mighty thrust of its tail, it launched itself from the churning foam, flying higher than any fish had ever leaped before. It soared through the misty air, crossing the lip of the waterfall and landing safely in the tranquil waters at the very top of the Dragon Gate.
+
+The gods, who had been watching from the heavens, were profoundly moved by the fish's incredible perseverance and unwavering courage. To reward such an extraordinary display of willpower, they transformed the exhausted koi into a magnificent, immortal golden dragon. The newly formed dragon possessed immense power, taking to the skies with a joyful roar, scattering glowing pearls of wisdom and bringing rain to the parched lands below. Whenever another koi fish managed to conquer the Dragon Gate, it too would be granted this incredible transformation.
+
+To this day, the leaping koi remains a powerful, universally recognized symbol of endurance, ambition, and the steadfast belief that even the most seemingly impossible obstacles can be successfully overcome through sheer perseverance and an unyielding spirit in the face of absolute adversity.</em></p>
+			</div>
+			
+			<div class="stopwatch">
+				<div class="name">Stopwatch 4B</div>
+				<div class="time"><button class="time-btn" data-set="4">00:00:00.00</button></div>
+			</div>
+			<button class="clear-set" data-set="4">Clear Set 4</button>
+		</div>
+
 	</div>
 	<script src="./multiple-stopwatches_script.js"></script>
 </body>
+</html>
